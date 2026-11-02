@@ -22,9 +22,11 @@ const PORT = process.env.PORT || 5000;
 
 async function startServer() {
     try {
+       
+        console.log("MONGODB_URI available:", !!process.env.MONGODB_URI);
         await mongoose.connect(process.env.MONGODB_URI);
-
         console.log("MongoDB connected successfully!");
+        
 
         app.listen(PORT, () => {
             console.log("AI Mystery Room server running on port " + PORT);
